@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.dillix.audiostream"
+        version="1.0.0">
+
+    <name>AudioStream</name>
+
+    <description>Audio streaming plugin for iOS</description>
+    <keywords>stream, audio, mp3, aac, sound, ios</keywords>
+    <license>MIT License</license>
+
+    <author>Mikhail Khasaya (github.com/dillix)</author>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/AudioStream.js" name="AudioStream">
+        <clobbers target="plugins.AudioStream" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+    		<feature name="AudioStream">
+    			<param name="ios-package" value="AudioStream"/>
+    		</feature>
+        </config-file>
+
+    	<header-file src="src/ios/AudioStream.h" />
+    	<source-file src="src/ios/AudioStream.m" />
+ 		<framework src="MediaPlayer.framework" weak="true" />
+    </platform>
+
+</plugin>
